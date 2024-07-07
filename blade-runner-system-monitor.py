@@ -77,7 +77,7 @@ if __name__ == "__main__":
                              background_color=(0, 0, 0))
 
         # CPU temperature
-        cpu_temp = CPU_Temp()
+        cpu_temp = round(CPU_Temp(), 1)
         lcd_comm.DisplayText(f" {cpu_temp} °C ", 335, 115,
                              font="blade-runner/blade-runner.ttf",
                              font_size=20,
@@ -93,7 +93,7 @@ if __name__ == "__main__":
                              background_color=(0, 0, 0))
 
         # GPU usage
-        gpu_usage= ADLManager.getInstance().getDevices().getCurrentUsage();
+        gpu_usage = ADLManager.getInstance().getDevices()[0].getCurrentUsage()
         lcd_comm.DisplayText(f" {gpu_usage}% ", 200, 235,
                              font="blade-runner/blade-runner.ttf",
                              font_size=20,
